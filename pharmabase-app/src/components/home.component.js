@@ -2,6 +2,7 @@ import React, { Component,state } from 'react';
 import axios from 'axios';
 import PharmaDataService from "../services/pharma.service";
 import LoginForm from "./loginform.component";
+import SignUpForm from "./signupform.component";
 
 class Home extends Component {
 
@@ -24,7 +25,7 @@ class Home extends Component {
     return (
       <div>
         {this.state.showLoginForm ? 
-         <LoginForm></LoginForm>
+         <SignUpForm></SignUpForm>
           :
           <p>hello</p>
           }

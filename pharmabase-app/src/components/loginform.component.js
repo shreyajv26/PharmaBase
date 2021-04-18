@@ -38,7 +38,7 @@ class LoginForm extends Component {
       "password": this.state.password
 
     }
-
+  
     axios.post(this.state.apiBaseUrl + '/login', data).then(function (response) {
 
       console.log(response);
@@ -63,7 +63,8 @@ class LoginForm extends Component {
   render() {
     return (
       <div>
-        <br></br>
+        <h1>PharmaBase - Powered by ACCENDERO</h1>
+        <h5>Login</h5>
         <br></br>
         <input type="text"
           id="email"
