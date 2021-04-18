@@ -1,22 +1,28 @@
 
 import React, { Component,state , useState, setState} from 'react';
 import axios from 'axios';
-import PharmaDataService from "../services/pharma.service";
+/*import PharmaDataService from "../services/pharma.service";*/
+import SignUpForm from "./signupform.component";
+import Home from "./home.component";
 
 class LoginForm extends Component {
 
   constructor(props) {
 
     super(props);
-    this.handleSubmitClick=this.handleSubmitClick.bind();
+    //this.handleSubmitClick=this.handleSubmitClick.bind();
     this.handleChange=this.handleChange.bind();
+    this.loginHandleClick=this.loginHandleClick.bind();
+    this.signupHandleClick=this.signupHandleClick.bind();
+    
     this.state = {
       email: '',  
       password: '',
       apiBaseUrl: "http://localhost:8080",
       showLoginForm:true,
       showProductList:false,
-      showSignUpForm:false
+      showSignUpForm:false,
+      showHomePage:false
     }
   }
 
@@ -28,9 +34,16 @@ class LoginForm extends Component {
     }));
   }
 
-  handleSubmitClick = (e) => {
+  signupHandleClick = (e) => {
     e.preventDefault();
+    this.setState({showSignUpForm:true,
+                    showLoginForm:false,
+                    showProductList:false,
+                    showHomePage:false});
+    }
 
+    loginHandleClick = (e) => {
+    e.preventDefault();
     var data = {
 
       "email": this.state.email,
@@ -39,30 +52,29 @@ class LoginForm extends Component {
 
     }
   
-    axios.post(this.state.apiBaseUrl + '/login', data).then(function (response) {
+  
+    axios.post(this.state.apiBaseUrl + '/login', data).then((response)=> {
+      //if (response.status==200) {
+        this.setState({showSignUpForm:false,
+          showLoginForm:false,
+          showProductList:false,
+          showHomePage:true});
+      /*} else {
+      }*/
 
-      console.log(response);
+    }).catch((e) => {
 
-      if (response.data.success) {
-
-        console.log("Login successfull");
-
-      } else {
-
-        alert(response.data.message);
-
-      }
-
-    }).catch(function (error) {
-
-      console.log(error);
+      console.log(e);
 
     });
   }
 
+ 
   render() {
     return (
       <div>
+        {this.state.showLoginForm ? 
+        <div>
         <h1>PharmaBase - Powered by ACCENDERO</h1>
         <h5>Login</h5>
         <br></br>
@@ -74,7 +86,7 @@ class LoginForm extends Component {
           onChange={this.handleChange} 
         />
 <br></br>
-        <input type="text"
+        <input type="password"
           size="20"
           id="password"
           placeholder="Password"
@@ -86,11 +98,36 @@ class LoginForm extends Component {
         <button
           type="submit"
           className="btn btn-primary"
-          onClick={this.handleSubmitClick}
+          onClick={this.loginHandleClick}
           
         >
           Login
           </button>
+          <button
+          type="submit"
+          className="btn btn-primary"
+          onClick={this.signupHandleClick}
+          
+        >
+          Register
+          </button>
+          </div>
+          :
+          <div></div>
+        }
+        {this.state.showSignUpForm ? 
+          <div><SignUpForm></SignUpForm></div>
+          
+          :
+          <div></div>
+        }
+           {this.state.showHomePage ? 
+        <div>
+          <Home></Home>
+           </div>
+          :
+          <p></p>
+          }
       </div>
     );
   }

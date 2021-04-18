@@ -3,7 +3,7 @@ import axios from 'axios';
 /*import PharmaDataService from "../services/pharma.service";*/
 //import Sign from '../title';
 
-class SignUpForm extends Component {
+class ProductForm extends Component {
 
     constructor(props) {
 
@@ -11,10 +11,17 @@ class SignUpForm extends Component {
         this.handleSubmitClick=this.handleSubmitClick.bind();
         this.handleChange=this.handleChange.bind();
         this.state = {
-          firstName: '',
-          lastName:'',
-          email: '',  
-          password: '',
+          ApplNo :' ',
+          ProductNo :' ',
+          Form :' ', 
+          Strength :' ',
+          ReferenceDrug :' ',
+          DrugName :' ',
+          ActiveIngredient :' ',
+          ReferenceStandard :' ',
+          Med_Count :' ',
+          RACKNO :' ',
+
           apiBaseUrl: "http://localhost:8080",
           showLoginForm:false,
           showProductList:false,
@@ -34,25 +41,25 @@ class SignUpForm extends Component {
         e.preventDefault();
     
         var data = {
-          "firstName": this.state.firstName,
-          "lastName": this.state.lastName,
-          "email": this.state.email,
-          "password": this.state.password
+          "ProductNo": this.state.ProductNo,
+          "DrugName": this.state.DrugName,
+          "Med_Count": this.state.Med_Count,
+          "RACKNO": this.state.RACKNO
     
         }
       
-        axios.post(this.state.apiBaseUrl + '/register_process', data).then(function (response) {
+        axios.post(this.state.apiBaseUrl + '/product', data).then(function (response) {
     
           console.log(response);
     
           if (response.data.success) {
     
-            console.log("Sign Up successfull");
-            alert("Sign Up successfull");
+            console.log("Product Added successfull");
+            alert("Product Added successfully");
     
           } else {
     
-            alert("Sign Up failed");
+            alert("Product addition  failed");
     
           }
     
@@ -68,43 +75,43 @@ class SignUpForm extends Component {
         return (
             <div>
               <h1>PharmaBase - Powered by ACCENDERO</h1>
-              <h5>Sign Up</h5>
+              <h5>Add Product</h5>
               <input type="text"
-                id="firstName"
+                id="ProductNo"
                 size="15"
-                placeholder="First Name"
-                value={this.state.firstName}
+                placeholder="Product No"
+                value={this.state.ProductNo}
                 onChange={this.handleChange} 
               />
       <br></br>
       <br></br>
               <input type="text"
-                id="lastName"
+                id="DrugName"
                 size="15"
-                placeholder="Last Name"
-                value={this.state.lastName}
+                placeholder="Drug Name"
+                value={this.state.DrugName}
                 onChange={this.handleChange} 
                
               />
         <br></br>
         <br></br>
               <input type="text"
-                id="email address"
+                id="Med_Count"
                 size="15"
-                id="email"
-                placeholder="Email ID"
-                value={this.state.email}
+                id="Med_Count"
+                placeholder="Med_Count"
+                value={this.state.Med_Count}
                 onChange={this.handleChange} 
                
               />
         <br></br>
         <br></br>
               <input type="text"
-                id="password"
+                id="RACKNO"
                 size="15"
-                id="password"
-                placeholder="Password"
-                value={this.state.password}
+                id="RACKNO"
+                placeholder="RACKNO"
+                value={this.state.RACKNO}
                 onChange={this.handleChange} 
                
               />
@@ -114,18 +121,11 @@ class SignUpForm extends Component {
                 className="btn btn-primary"
                 onClick={this.handleSubmitClick} 
               >
-                Sign Up
-                </button>
-                <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={this.handleSubmitClick} 
-              >
-                Login
+                Add Product
                 </button>
             </div>
           );
         }
     }
 
-export default SignUpForm;
+export default ProductForm;
