@@ -1,14 +1,14 @@
 import React, { Component,state , useState, setState} from 'react';
 import axios from 'axios';
-/*import PharmaDataService from "../services/pharma.service";*/
-//import Sign from '../title';
+import LoginForm from "./loginform.component";
+import SignUpSuccess from "./signupsuccess.component";
 
 class SignUpForm extends Component {
 
     constructor(props) {
 
         super(props);
-        this.handleSubmitClick=this.handleSubmitClick.bind();
+        this.signupHandleClick=this.signupHandleClick.bind();
         this.handleChange=this.handleChange.bind();
         this.state = {
           firstName: '',
@@ -18,7 +18,8 @@ class SignUpForm extends Component {
           apiBaseUrl: "http://localhost:8080",
           showLoginForm:false,
           showProductList:false,
-          showSignUpForm:true
+          showSignUpForm:true,
+          showSignUpSuccess:false
         }
       }
     
@@ -30,7 +31,7 @@ class SignUpForm extends Component {
         }));
       }
     
-      handleSubmitClick = (e) => {
+      signupHandleClick = (e) => {
         e.preventDefault();
     
         var data = {
@@ -41,34 +42,23 @@ class SignUpForm extends Component {
     
         }
       
-        axios.post(this.state.apiBaseUrl + '/register_process', data).then(function (response) {
+        axios.post(this.state.apiBaseUrl + '/register_process', data).then((response)=> {
+          this.setState({showSignUpForm:false,
+            showSignUpSuccess:true});
+  
+      }).catch((e) => {
+        console.log(e);
+      });
+    }
     
-          console.log(response);
-    
-          if (response.data.success) {
-    
-            console.log("Sign Up successfull");
-            alert("Sign Up successfull");
-    
-          } else {
-    
-            alert("Sign Up failed");
-    
-          }
-    
-        }).catch(function (error) {
-    
-          console.log(error);
-    
-        });
-      }
-
-
     render() {
         return (
             <div>
+              {this.state.showSignUpForm ? 
+              <div>
               <h1>PharmaBase - Powered by ACCENDERO</h1>
               <h5>Sign Up</h5>
+              <h11>First Name : </h11>
               <input type="text"
                 id="firstName"
                 size="15"
@@ -78,6 +68,7 @@ class SignUpForm extends Component {
               />
       <br></br>
       <br></br>
+              <h11>Last Name : </h11>
               <input type="text"
                 id="lastName"
                 size="15"
@@ -88,6 +79,7 @@ class SignUpForm extends Component {
               />
         <br></br>
         <br></br>
+              <h11>Email Address : </h11>
               <input type="text"
                 id="email address"
                 size="15"
@@ -99,7 +91,8 @@ class SignUpForm extends Component {
               />
         <br></br>
         <br></br>
-              <input type="text"
+              <h11>Password : </h11>
+              <input type="password"
                 id="password"
                 size="15"
                 id="password"
@@ -109,21 +102,31 @@ class SignUpForm extends Component {
                
               />
         <br></br>
+        <br></br>
+        <br></br>
               <button
                 type="submit"
                 className="btn btn-primary"
-                onClick={this.handleSubmitClick} 
+                onClick={this.signupHandleClick} 
               >
                 Sign Up
                 </button>
-                <button
-                type="submit"
-                className="btn btn-primary"
-                onClick={this.handleSubmitClick} 
-              >
-                Login
-                </button>
+                
             </div>
+            :
+            <div></div>
+          }
+
+      {this.state.showSignUpSuccess ? 
+        <div>
+          <SignUpSuccess></SignUpSuccess>
+           </div>
+          :
+          <p></p>
+          }
+
+
+        </div>
           );
         }
     }
