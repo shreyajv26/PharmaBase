@@ -46,16 +46,6 @@ public class WebAppController {
 		return new ResponseEntity<>(
 			      "login successful ", 
 			      HttpStatus.OK);
-		/*String result= customUserDetailsService.loadUserByUsername(user.getEmail(),user.getPassword());
-		
-		if(result.equals("Found"))
-		return new ResponseEntity<>(
-			      "login successful ", 
-			      HttpStatus.OK);
-		else
-			return new ResponseEntity<>(
-				      "invalid username password ", 
-				      HttpStatus.BAD_REQUEST);*/
 
 	}
 
@@ -89,5 +79,21 @@ public class WebAppController {
     {
         return productrepo.findAll();
     }
+	
+	@PostMapping("/editproduct")
+	public String editProduct(@RequestBody ProductFormData product) {
+		return "Successful edit";
+		
+	}
+	
+	@PostMapping("/success")
+	public ResponseEntity<String> success(@RequestBody LoginForm user) {
+		System.out.println("in login form");
+		System.out.println(user.toString());
+		return new ResponseEntity<>(
+			      "login successful ", 
+			      HttpStatus.OK);
+
+	}
 
 }
