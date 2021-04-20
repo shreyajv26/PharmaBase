@@ -70,51 +70,72 @@ class LoginForm extends Component {
     return (
 
       //Render Login form with Login and Register buttons
-      
+
       <div>
         {this.state.showLoginForm ?
           <div>
-            <h1>PharmaBase - Powered by ACCENDERO</h1>
-            <h5>Login</h5>
-            <br></br>
-            <h11>Username : </h11>
-            <input type="text"
-              id="email"
-              size="20"
-              placeholder="Email id"
-              value={this.state.email}
-              onChange={this.handleChange}
-            />
-            <br></br>
-            <h11>Password : </h11>
-            <input type="password"
-              size="20"
-              id="password"
-              placeholder="Password"
-              value={this.state.password}
-              onChange={this.handleChange}
 
-            />
+            <div class="App-header">
+              <h1>PharmaBase - Powered by ACCENDERO</h1>
+            </div>
+
             <br></br>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={this.loginHandleClick}
+            
+              <div class="sub-header">
+                <h3>Sign In</h3>
+              </div>
 
-            >
-              Login
-          </button>
-            <button
-              type="submit"
-              className="btn btn-primary"
-              onClick={this.signupHandleClick}
+              <br></br>
 
-            >
-              Register
-          </button>
+              <form>
+              <div className="form-group">
+                <center>
+                  <label>Email ID : </label>
+                  <input type="text"
+                    id="email"
+                    size="15"
+                    placeholder="Email id"
+                    value={this.state.email}
+                    onChange={this.handleChange}
+                  />
+                </center>
+              </div>
+
+              <br></br>
+
+              <div className="form-group">
+                <center>
+                  <label>Password : </label>
+                  <input type="password"
+                    size="15"
+                    id="password"
+                    placeholder="Password"
+                    value={this.state.password}
+                    onChange={this.handleChange}
+
+                  />
+                </center>
+              </div>
+
+              <br></br>
+              <br></br>
+
+              <div class="button">
+                <button type="submit" className="btn btn-primary mr-5" onClick={this.loginHandleClick}>
+                  Login
+            </button>
+
+                <button
+                  type="submit" className="btn btn-primary mr-5" onClick={this.signupHandleClick}>
+                  Register
+            </button>
+              </div>
+            </form>
+
           </div>
           :
           <div></div>
+
         }
 
         {this.state.showSignUpForm ?

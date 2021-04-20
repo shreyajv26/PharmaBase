@@ -25,7 +25,7 @@ class AddProduct extends Component {
           apiBaseUrl: "http://localhost:8080",
           showLoginForm:false,
           showProductList:false,
-          showSignUpForm:true
+          showaddProductForm:true
         }
   }
 
@@ -43,11 +43,7 @@ class AddProduct extends Component {
     console.log(data);
   
     axios.post(this.state.apiBaseUrl + '/addproduct', data).then((response)=> {
-       /*this.setState({showHomePage:false,
-                       showAddproductForm: false,
-                       showProductPageForm: true
-                      
-    });*/
+ 
     alert("Product tAdded successfully");
     }).catch((e) => {
       console.log(e);
@@ -65,13 +61,23 @@ class AddProduct extends Component {
   render() {
     return (
       <div>
-         
-       
-        <div>
         
-        <h5>Add a Product</h5>
+        {this.state.showaddProductForm ?
+        <div>
+          <div class="App-header">
+        <h1>PharmaBase - Powered by ACCENDERO</h1>
+        </div>
         <br></br>
-        <h11>ApplNo : </h11>
+
+        <div class="sub-header">
+        <h5>Add a Product</h5>
+        </div>
+
+        <br></br>
+        <form>
+        <div className="form-group">
+                <center>
+        <label>ApplNo : </label>
         <input type="text"
           id="ApplNo"
           size="20"
@@ -79,9 +85,13 @@ class AddProduct extends Component {
           value={this.state.ApplNo}
           onChange={this.handleChange} 
         />
+        </center></div>
+
         <br></br>
 
-        <h11>ProductNo : </h11>
+        <div className="form-group">
+                <center>
+        <label>ProductNo : </label>
         <input type="text"
           size="20"
           id="ProductNo"
@@ -90,9 +100,14 @@ class AddProduct extends Component {
           onChange={this.handleChange} 
          
         />
+        </center>
+        </div>
+
         <br></br>
 
-        <h11>Form : </h11>
+        <div className="form-group">
+                <center>
+        <label>Form : </label>
         <input type="text"
           size="20"
           id="Form"
@@ -101,9 +116,14 @@ class AddProduct extends Component {
           onChange={this.handleChange} 
          
         />
+        </center>
+        </div>
+
         <br></br>
 
-        <h11>DrugName : </h11>
+        <div className="form-group">
+                <center>
+        <label>DrugName : </label>
         <input type="text"
           size="20"
           id="DrugName"
@@ -112,9 +132,14 @@ class AddProduct extends Component {
           onChange={this.handleChange} 
          
         />
+        </center>
+        </div>
+
         <br></br>
 
-        <h11>Med_Count : </h11>
+        <div className="form-group">
+                <center>
+        <label>Med_Count : </label>
         <input type="text"
           size="20"
           id="Med_Count"
@@ -123,9 +148,14 @@ class AddProduct extends Component {
           onChange={this.handleChange} 
          
         />
+        </center>
+        </div>
+
         <br></br>
 
-        <h11>RACKNO : </h11>
+        <div className="form-group">
+                <center>
+        <label>RACKNO : </label>
         <input type="text"
           size="20"
           id="RACKNO"
@@ -134,8 +164,12 @@ class AddProduct extends Component {
           onChange={this.handleChange} 
          
         />
+        </center>
+        </div>
+        
         <br></br>
 
+        <div class="button">
         <button
           type="submit"
           className="btn btn-primary"
@@ -144,10 +178,16 @@ class AddProduct extends Component {
         >
           Submit
           </button>
+        </div>
+        </form>
           </div>
+          
+          :
+          <div></div>
          
 
-
+      
+      }
         {this.state.showProductPageForm ? 
           <div><Home></Home></div>
           

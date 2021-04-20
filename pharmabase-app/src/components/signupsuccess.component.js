@@ -1,112 +1,134 @@
 
-import React, { Component,state , useState, setState} from 'react';
+import React, { Component, state, useState, setState } from 'react';
 import axios from 'axios';
-/*import PharmaDataService from "../services/pharma.service";*/
-import LoginForm from "./loginform.component";
 import Home from "./productpage.component";
-import ProductForm from "./productlist.component";
 
 class SignUpSuccess extends Component {
-    constructor(props) {
+  constructor(props) {
 
-        super(props);
-        this.handleChange=this.handleChange.bind();
-        this.loginHandleClick=this.loginHandleClick.bind();
-        
-        this.state = {
-          email: '',  
-          password: '',
-          apiBaseUrl: "http://localhost:8080",
-          showLoginForm:true,
-          showProductList:false,
-          showSignUpForm:false,
-          showHomePage:false
-        }
-      }
+    super(props);
+    this.handleChange = this.handleChange.bind();
+    this.loginHandleClicks = this.loginHandleClicks.bind();
 
-    handleChange = (e) => {
-        const {id , value} = e.target   
-        this.setState(prevState => ({
-            ...prevState,
-            [id] : value
-        }));
-      }
+    this.state = {
+      apiBaseUrl: "http://localhost:8080",
+      showsignupsuccess: true,
+      showProductList: false,
+      showSignUpForm: false,
+      showHomePage: false
+    }
+  }
 
-    
-    loginHandleClick = (e) => {
-        e.preventDefault();
-        var data = {
-          "email": this.state.email,
-          "password": this.state.password
-        }
-      
-      
-        axios.post(this.state.apiBaseUrl + '/login', data).then((response)=> {
-            this.setState({showSignUpForm:false,
-              showProductList:true,
-              showHomePage:false});
-    
-        }).catch((e) => {
-          console.log(e);
-        });
-      }
+  handleChange = (e) => {
+    const { id, value } = e.target
+    this.setState(prevState => ({
+      ...prevState,
+      [id]: value
+    }));
+  }
 
 
-  
+  loginHandleClicks = (e) => {
+    e.preventDefault();
+    var data = {
+      "email": this.state.email,
+      "password": this.state.password
+    }
+
+
+    axios.post(this.state.apiBaseUrl + '/success', data).then((response) => {
+      this.setState({
+        showSignUpForm: false,
+        showLoginForm: false,
+        showProductList: false,
+        showHomePage: true
+      });
+
+    }).catch((e) => {
+      console.log(e);
+    });
+  }
+
+
+
   render() {
     return (
 
-        //Render Login form with Login and Register buttons
-        <div>
-          {this.state.showLoginForm ? 
+      //Render Login form with Login and Register buttons
+      <div>
+        {this.state.showsignupsuccess ?
           <div>
-          <h1>PharmaBase - Powered by ACCENDERO</h1>
-          <h3>Congratulations, Your sign up was successful !</h3>
-          <h5>Please Login below</h5>
-          <br></br>
-          <h11>Email ID : </h11>
-          <input type="text"
-            id="email"
-            size="20"
-            placeholder="Email id"
-            value={this.state.email}
-            onChange={this.handleChange} 
-          />
-  <br></br>
-          <h11>Password : </h11>
-          <input type="password"
-            size="20"
-            id="password"
-            placeholder="Password"
-            value={this.state.password}
-            onChange={this.handleChange} 
-           
-          />
-          <br></br>
-          <button
-            type="submit"
-            className="btn btn-primary"
-            onClick={this.loginHandleClick}
-            
-          >
-            Login
+
+            <div class="App-header">
+              <h1>PharmaBase - Powered by ACCENDERO</h1>
+            </div>
+
+            <div class="sub-header">
+              <h3>Congratulations, Your sign up was successful !</h3>
+            </div>
+
+            <br></br>
+
+            <div class="sub-header">
+              <h3>Please Login below</h3>
+            </div>
+
+            <br></br>
+
+            <div className="form-group">
+              <center>
+                <label>Email ID : </label>
+                <input type="text"
+                  id="email"
+                  size="15"
+                  placeholder="Email id"
+                  value={this.state.email}
+                  onChange={this.handleChange}
+                />
+              </center>
+            </div>
+
+            <br></br>
+
+            <div className="form-group">
+              <center>
+                <label>Password : </label>
+                <input type="password"
+                  size="15"
+                  id="password"
+                  placeholder="Password"
+                  value={this.state.password}
+                  onChange={this.handleChange}
+
+                />
+              </center>
+            </div>
+
+            <br></br>
+            <div class="button">
+              <button
+                type="submit"
+                className="btn btn-primary"
+                onClick={this.loginHandleClicks}
+
+              >
+                Login
             </button>
             </div>
-            :
-            <div></div>
-          }
-  
-          {this.state.showProductList ? 
-            <div><ProductForm></ProductForm></div>
-            
-            :
-            <div></div>
-          }
-  
-  
-          
-        </div>
-      );
-    }
+          </div>
+          :
+          <div></div>
+        }
+
+        {this.state.showHomePage ?
+          <div><Home></Home></div>
+
+          :
+          <div></div>
+        }
+
+      </div>
+    );
+  }
 }
 export default SignUpSuccess;

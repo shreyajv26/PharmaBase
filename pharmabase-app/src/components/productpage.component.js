@@ -2,6 +2,7 @@ import React, { Component,state } from 'react';
 import axios from 'axios';
 import AddProduct from "./addproductform.component";
 import  ProductList  from "./productlist.component";
+import  EditProduct  from "./editproductform.component";
 
 
 class Home extends Component {
@@ -13,20 +14,10 @@ class Home extends Component {
         this.displayProductClick=this.displayProductClick.bind();
         this.searchProductClick=this.searchProductClick.bind();
         this.state = {
-          ApplNo :'',
-          ProductNo :'',
-          Form :'', 
-          Strength :'',
-          ReferenceDrug :'',
-          DrugName :'',
-          ActiveIngredient :'',
-          ReferenceStandard :'',
-          Med_Count :'',
-          RACKNO :'',
-
           apiBaseUrl: "http://localhost:8080",
           showProductList:false,
           showAddproductForm:false,
+          showProductPageForm:true
           
         }
   }
@@ -55,20 +46,24 @@ class Home extends Component {
   render() {
     return (
       <div>
-        
+        {this.state.showProductPageForm ?
+          <div>
+        <div class="App-header">
         <h1>PharmaBase - Powered by ACCENDERO</h1>
-       <div>
+        </div>
+
+       <div class="button">
        <br></br>
         <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary mr-5"
           onClick={this.addProductClick}
         >
           Add a Product
           </button>
           <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary mr-5"
           onClick={this.displayProductClick}  
         >
           Display all Products
@@ -76,15 +71,17 @@ class Home extends Component {
 
           <button
           type="submit"
-          className="btn btn-primary"
+          className="btn btn-primary mr-5"
           onClick={this.searchProductClick}
         >
           Search a Product
           </button>
-
+          </div>
        </div>
-        :
-        <div></div>
+       :
+          <div></div>
+
+        }
         
 
 
@@ -100,6 +97,13 @@ class Home extends Component {
           <p></p>
         
         }
+        {this.state.showAddproductForm ? 
+          <EditProduct></EditProduct>
+          :
+          <p></p>
+        
+        }
+        
 
 
        
