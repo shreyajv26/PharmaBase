@@ -1,5 +1,5 @@
 import React, { Component,state } from 'react';
-import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import AddProduct from "./addproductform.component";
 import  ProductList  from "./productlist.component";
 import  EditProduct  from "./editproductform.component";
@@ -12,7 +12,6 @@ class Home extends Component {
     super(props);
         this.addProductClick=this.addProductClick.bind();
         this.displayProductClick=this.displayProductClick.bind();
-        this.searchProductClick=this.searchProductClick.bind();
         this.state = {
           apiBaseUrl: "http://localhost:8080",
           showProductList:false,
@@ -24,23 +23,16 @@ class Home extends Component {
 
   addProductClick = (e) => {
     e.preventDefault();
-    this.setState({showAddproductForm:true,  showProductList:false
-    });
+    let path = '/addproduct';
+    this.props.history.push(path);
   }
 
 
   displayProductClick = (e) => {
-    e.preventDefault();
-    this.setState({showProductPageForm:false , showProductList:true
-});
+    let path = '/listproduct';
+    this.props.history.push(path);
     }
 
-
-    searchProductClick = (e) => {
-      e.preventDefault();
-      this.setState({showProductPageForm:true
-});
-      }
 
 
   render() {
@@ -69,13 +61,7 @@ class Home extends Component {
           Display all Products
           </button>
 
-          <button
-          type="submit"
-          className="btn btn-primary mr-5"
-          onClick={this.searchProductClick}
-        >
-          Search a Product
-          </button>
+          
           </div>
        </div>
        :
@@ -113,4 +99,4 @@ class Home extends Component {
   
   }
 }
-export default Home;
+export default withRouter(Home);

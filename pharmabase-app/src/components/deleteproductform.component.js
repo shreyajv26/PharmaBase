@@ -6,7 +6,7 @@ import ProductList  from "./productlist.component";
 
 
 
-class AddProduct extends Component {
+class DeleteProduct extends Component {
 
   constructor(props) {
 
@@ -212,4 +212,4 @@ class AddProduct extends Component {
 
   }
 }
-export default withRouter (AddProduct);
+export default withRouter (DeleteProduct);

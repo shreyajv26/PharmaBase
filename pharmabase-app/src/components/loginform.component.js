@@ -1,9 +1,9 @@
 
 import React, { Component, state, useState, setState } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import SignUpForm from "./signupform.component";
 import Home from "./productpage.component";
-import ProductForm from "./productlist.component";
 
 class LoginForm extends Component {
 
@@ -36,12 +36,8 @@ class LoginForm extends Component {
 
   signupHandleClick = (e) => {
     e.preventDefault();
-    this.setState({
-      showSignUpForm: true,
-      showLoginForm: false,
-      showProductList: false,
-      showHomePage: false
-    });
+    let path = '/register_process';
+    this.props.history.push(path);
   }
 
   loginHandleClick = (e) => {
@@ -50,19 +46,11 @@ class LoginForm extends Component {
       "email": this.state.email,
       "password": this.state.password
     }
-
-
-    axios.post(this.state.apiBaseUrl + '/login', data).then((response) => {
-      this.setState({
-        showSignUpForm: false,
-        showLoginForm: false,
-        showProductList: false,
-        showHomePage: true
-      });
-
-    }).catch((e) => {
-      console.log(e);
+    axios.post(this.state.apiBaseUrl + '/', data).then((response) => {
+    let path = '/home';
+    this.props.history.push(path);
     });
+
   }
 
 
@@ -124,6 +112,7 @@ class LoginForm extends Component {
                 <button type="submit" className="btn btn-primary mr-5" onClick={this.loginHandleClick}>
                   Login
             </button>
+            
 
                 <button
                   type="submit" className="btn btn-primary mr-5" onClick={this.signupHandleClick}>
@@ -156,4 +145,4 @@ class LoginForm extends Component {
     );
   }
 }
-export default LoginForm;
+export default withRouter (LoginForm);

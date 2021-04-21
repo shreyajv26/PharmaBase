@@ -1,4 +1,5 @@
 import React, { Component, state } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
 import Home from "./productpage.component";
 import EditProduct from "./editproductform.component";
@@ -22,11 +23,15 @@ class ProductList extends Component {
 
   editButtonClick = (e) => {
     e.preventDefault();
-    this.setState({
-      showEditProductForm: true, showProductList: false
-    });
+    let path = '/editproduct';
+    this.props.history.push(path);
   }
 
+  deleteButtonClick = (e) => {
+    e.preventDefault();
+    let path = '/deleteproduct';
+    this.props.history.push(path);
+  }
 
   componentDidMount() {
 
@@ -136,4 +141,4 @@ class ProductList extends Component {
 
   }
 }
-export default ProductList;
+export default withRouter(ProductList);

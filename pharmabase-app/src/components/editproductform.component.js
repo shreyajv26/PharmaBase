@@ -1,5 +1,8 @@
 import React, { Component, state } from 'react';
+import { withRouter } from 'react-router-dom';
 import axios from 'axios';
+
+import Home from "./productpage.component";
 
 
 
@@ -25,22 +28,19 @@ class EditProduct extends Component {
     saveButtonClick = (e) => {
         e.preventDefault();
         var data = {
-            "item-id": this.state.Item_Id,
+            "item_id": this.state.Item_Id,
             "drug_name": this.state.DrugName,
             "med_count": this.state.Med_Count,
             "rack_no": this.state.RACKNO,
         }
 
-        console.log(data);
-
-        axios.post(this.state.apiBaseUrl + '/editproduct', data).then((response) => {
+        axios.post(this.state.apiBaseUrl + '/editproduct/{Item_Id}', data).then((response) => {
             alert("Product Edited successfully");
-            
-
-        }).catch((e) => {
-            console.log(e);
+            let path = '/home';
+            this.props.history.push(path);
         });
     }
+
 
     handleChange = (e) => {
         const { id, value } = e.target
@@ -135,7 +135,7 @@ class EditProduct extends Component {
                             <br></br>
 
                             <div class="button">
-                                <button type="submit" className="btn btn-primary"onClick={this.saveButtonClick}>Save</button>
+                                <button type="submit" className="btn btn-primary" onClick={this.saveButtonClick}>Save</button>
                             </div>
                         </form>
                     </div>
@@ -144,12 +144,19 @@ class EditProduct extends Component {
                     <div></div>
                 }
 
-                
+                {this.state.showProductPageForm ?
+                    <div><Home></Home></div>
+
+                    :
+                    <div></div>
+                }
 
             </div>
+
+
 
         );
 
     }
 }
-export default EditProduct;
+export default withRouter(EditProduct);

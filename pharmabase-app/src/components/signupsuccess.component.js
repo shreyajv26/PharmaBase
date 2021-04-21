@@ -1,6 +1,7 @@
 
 import React, { Component, state, useState, setState } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import Home from "./productpage.component";
 
 class SignUpSuccess extends Component {
@@ -131,4 +132,4 @@ class SignUpSuccess extends Component {
     );
   }
 }
-export default SignUpSuccess;
+export default withRouter(SignUpSuccess);

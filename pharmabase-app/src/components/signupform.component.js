@@ -1,5 +1,6 @@
 import React, { Component, state, useState, setState } from 'react';
 import axios from 'axios';
+import { withRouter } from 'react-router-dom';
 import LoginForm from "./loginform.component";
 import SignUpSuccess from "./signupsuccess.component";
 
@@ -17,9 +18,7 @@ class SignUpForm extends Component {
       password: '',
       apiBaseUrl: "http://localhost:8080",
       showLoginForm: false,
-      showProductList: false,
       showSignUpForm: true,
-      showSignUpSuccess: false
     }
   }
 
@@ -168,4 +167,4 @@ class SignUpForm extends Component {
   }
 }
 
-export default SignUpForm;
+export default withRouter(SignUpForm);
