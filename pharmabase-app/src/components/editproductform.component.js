@@ -13,29 +13,61 @@ class EditProduct extends Component {
         super(props);
         this.saveButtonClick = this.saveButtonClick.bind();
         this.state = {
-            Item_Id: '',
+            ApplNo: '',
+            ProductNo: '',
+            Form: '',
+            Strength: '',
+            ReferenceDrug: '',
             DrugName: '',
+            ActiveIngredient: '',
+            ReferenceStandard: '',
             Med_Count: '',
             RACKNO: '',
 
-            apiBaseUrl: "http://localhost:8080",
+            apiBaseUrl: 'http://localhost:8080',
             showLoginForm: false,
             showProductList: false,
             showeditproductForm: true
         }
     }
 
+    componentDidMount() {
+
+        //let { itemId } = this.props.params;
+        console.log("id" + this.props.location.state);
+        this.setState({ Item_Id: this.props.location.state });
+        console.log("Item_Id" + this.state.Item_Id);
+        let id = this.props.location.state;
+
+        axios.get(this.state.apiBaseUrl + '/editproduct/' + id).then((response) => {
+            //UserData: response.data;
+
+            this.setState({
+                item_id: response.data.itemId,
+                rack_no: response.data.rackNo,
+                drug_name: response.data.DrugName,
+                med_count: response.data.medCount
+            });
+            const myObjStr = JSON.stringify(response.data);
+            console.log("data" + myObjStr);
+        }).catch((e) => {
+            console.log(e);
+        });
+        console.log(this.state.UserData);
+    }
+
+
     saveButtonClick = (e) => {
         e.preventDefault();
         var data = {
-            "item_id": this.state.Item_Id,
+            "item_id": this.state.item_id,
             "drug_name": this.state.DrugName,
             "med_count": this.state.Med_Count,
             "rack_no": this.state.RACKNO,
         }
 
-        axios.post(this.state.apiBaseUrl + '/editproduct/{Item_Id}', data).then((response) => {
-            alert("Product Edited successfully");
+        axios.post(this.state.apiBaseUrl + '/updateproduct/' + this.state.item_id, data).then((response) => {
+            alert("Product Edited med_count");
             let path = '/home';
             this.props.history.push(path);
         });
