@@ -97,7 +97,7 @@ class Home extends Component {
           <p></p>
         
         }
-        {this.state.showAddproductForm ? 
+        {this.state.editproductForm ? 
           <EditProduct></EditProduct>
           :
           <p></p>
