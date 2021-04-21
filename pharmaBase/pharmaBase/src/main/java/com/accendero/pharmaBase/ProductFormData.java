@@ -20,7 +20,7 @@ public class ProductFormData {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="item_id")
-	private String itemId;
+	private Long itemId;
 	
 	@Column(name="appl_no")
 	private String applNo;
@@ -42,12 +42,12 @@ public class ProductFormData {
 
 	
 
-	public String getItemId() {
+	public Long getItemId() {
 		return itemId;
 	}
 
 
-	public void setItemId(String itemId) {
+	public void setItemId(Long itemId) {
 		this.itemId = itemId;
 	}
 
