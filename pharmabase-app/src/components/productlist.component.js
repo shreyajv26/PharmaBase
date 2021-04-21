@@ -16,29 +16,37 @@ class ProductList extends Component {
       apiBaseUrl: "http://localhost:8080",
       showProductList: true,
       showEditProductForm: false,
-      itemId:'',
+      itemId: '',
       UserData: [
       ]
     }
   }
+  
+  showProductPageFormClick = (e) => {
+    e.preventDefault();
+    let path = '/home';
+    this.props.history.push(path
+    );
 
+  }
+  
   editButtonClick = (e) => {
     e.preventDefault();
-    this.setState({itemId:e.target.value});
+    this.setState({ itemId: e.target.value });
     let path = '/editproduct';
-    this.props.history.push(path,e.target.value
-      );
+    this.props.history.push(path, e.target.value
+    );
 
   }
 
   deleteButtonClick = (e) => {
     e.preventDefault();
-     let id=e.target.value;
-    axios.delete(this.state.apiBaseUrl + '/deleteproduct/'+id).then((response) => {
-      
-   }).catch((e) => {
-       console.log(e);
-   });
+    let id = e.target.value;
+    axios.delete(this.state.apiBaseUrl + '/deleteproduct/' + id).then((response) => {
+
+    }).catch((e) => {
+      console.log(e);
+    });
     let path = '/listproduct';
     this.props.history.push(path);
   }
@@ -85,7 +93,10 @@ class ProductList extends Component {
             </div>
 
             <div className="App">
-
+              <button
+                type="submit" className="btn btn-primary mr-5" onClick={this.showProductPageFormClick}>
+                Go back to Products Page
+            </button>
               <table border='2' className="table" align='center' >
 
                 <thead>
@@ -113,10 +124,11 @@ class ProductList extends Component {
                         <td>{data.drug_name}</td>
                         <td>{data.med_count}</td>
                         <td>{data.rack_no}</td>
-                        <td><button type="submit" className="btn btn-primary" value={data.item_id}  onClick={this.editButtonClick} >Edit</button></td>
+                        <td><button type="submit" className="btn btn-primary" value={data.item_id} onClick={this.editButtonClick} >Edit</button></td>
                         <td><button type="submit" className="btn btn-primary" value={data.item_id} onClick={this.deleteButtonClick} >Delete</button></td>
                       </tr>
                     </tbody>
+
 
                   );
                 })
@@ -150,6 +162,7 @@ class ProductList extends Component {
             :
             <div></div>
         }
+
 
       </div>
 

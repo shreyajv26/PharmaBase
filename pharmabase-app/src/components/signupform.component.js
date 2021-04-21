@@ -42,10 +42,8 @@ class SignUpForm extends Component {
     }
 
     axios.post(this.state.apiBaseUrl + '/register_process', data).then((response) => {
-      this.setState({
-        showSignUpForm: false,
-        showSignUpSuccess: true
-      });
+      let path = '/';
+    this.props.history.push(path);
 
     }).catch((e) => {
       console.log(e);

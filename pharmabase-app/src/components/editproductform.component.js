@@ -67,7 +67,7 @@ class EditProduct extends Component {
         }
 
         axios.post(this.state.apiBaseUrl + '/updateproduct/' + this.state.item_id, data).then((response) => {
-            alert("Product Edited med_count");
+            alert("Product Updated successfully");
             let path = '/home';
             this.props.history.push(path);
         });
