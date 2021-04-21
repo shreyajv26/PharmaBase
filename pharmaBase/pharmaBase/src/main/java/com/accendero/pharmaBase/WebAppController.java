@@ -64,13 +64,10 @@ public class WebAppController {
 	
 	
 	@PostMapping("/addproduct")
-	public ResponseEntity<String> addProduct(@RequestBody ProductFormData product) {
+	public ProductFormData addProduct(@RequestBody ProductFormData product) {
 		System.out.println("in addaproduct form");
 		System.out.println(product.toString());
-		productrepo.save(product);
-		 return new ResponseEntity<>(
-			      "adding successful ", 
-			      HttpStatus.OK);
+		return productrepo.save(product);
 
 	}
 	
@@ -116,6 +113,7 @@ public class WebAppController {
 		
 	}
 	
+	//Get the list of products
 	@GetMapping("/listproduct")
 	public List<ProductFormData> getAllProducts()
     {
