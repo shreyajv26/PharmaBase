@@ -43,9 +43,22 @@ public class WebAppController {
 	public ResponseEntity<String> login(@RequestBody LoginForm user) {
 		System.out.println("in login form");
 		System.out.println(user.toString());
-		return new ResponseEntity<>(
+		String email = user.getEmail();
+		String password = user.getPassword();
+		
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+	    
+	    String storedPassword = customUserDetailsService.loadUserByUsername(email);
+	    
+	    if(passwordEncoder.matches(password, storedPassword))
+	    
+	    	{return new ResponseEntity<>(
 			      "login successful ", 
 			      HttpStatus.OK);
+	    	}
+	    	return new ResponseEntity<>(
+				      "login failure ", 
+				      HttpStatus.UNAUTHORIZED);
 
 	}
 

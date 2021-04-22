@@ -11,17 +11,19 @@ public class CustomUserDetailsService  {
     @Autowired
     private UserRepository userRepo;
      
-    public String loadUserByUsername(String username , String password) throws UsernameNotFoundException {
+    public String loadUserByUsername(String username) throws UsernameNotFoundException {
         
     	 User user = userRepo.findByEmail(username);
          if(user == null) {
              throw new RuntimeException("User does not exist.");
          }
-         if(!user.getPassword().equals(password)){
+         /*if(!user.getPassword().equals(password)){
              throw new RuntimeException("Password mismatch.");
-         }
+         }*/
          
-        return "found";
+         String password = user.getPassword();
+         
+        return password;
     }
     
     
