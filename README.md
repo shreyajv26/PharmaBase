@@ -9,6 +9,9 @@ Medical data files downloaded from the below location: https://www.fda.gov/drugs
 
 
 Configurations:
-Front-End: Node Version: 14.6.0
-Backend: Java 8 + Spring Boot 
-Database: MySQL Database from AWS RDS
+1. Front-End: 
+  Node Version: 14.6.0
+  npm Version: 6.14.11
+
+2. Backend: Java 8 + Spring Boot 
+3. Database: MySQL Database from AWS RDS
