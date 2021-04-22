@@ -1,0 +1,13 @@
+For errors and issues:
+https://stackoverflow.com/questions
+
+For Web-App Development:
+https://bezkoder.com/react-spring-boot-crud/
+https://reactjs.org/docs/getting-started.html
+https://docs.spring.io/spring-boot/docs/current/reference/htmlsingle/
+https://www.callicoder.com/spring-boot-rest-api-tutorial-with-mysql-jpa-hibernate/
+
+For Junit Integration Testing:
+https://www.javaguides.net/2018/09/spring-boot-2-rest-apis-integration-testing.html
+https://medium.com/@gustavo.ponce.ch/spring-boot-restful-junit-mockito-hamcrest-eclemma-5add7f725d4e
+https://www.tutorialspoint.com/spring_boot/spring_boot_rest_controller_unit_test.htm
