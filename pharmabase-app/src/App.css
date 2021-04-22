@@ -77,7 +77,10 @@ label {
   color: #61dafb;
 }
 
-
+.required:after {
+  content:" *";
+  color: red;
+}
 
 @keyframes App-logo-spin {
   from {

@@ -80,8 +80,9 @@ class LoginForm extends Component {
             <form>
               <div className="form-group">
                 <center>
-                  <label>Email ID : </label>
+                  <label class="required">Email ID : </label>
                   <input type="text"
+
                     id="email"
                     size="15"
                     placeholder="Email id"

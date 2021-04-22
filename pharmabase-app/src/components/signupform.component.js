@@ -67,7 +67,7 @@ class SignUpForm extends Component {
 
             <div className="form-group">
               <center>
-                <label>First Name : </label>
+                <label class="required">First Name : </label>
                 <input type="text"
                   id="firstName"
                   size="15"
@@ -83,7 +83,7 @@ class SignUpForm extends Component {
 
             <div className="form-group">
               <center>
-                <label>Last Name : </label>
+                <label class="required">Last Name : </label>
                 <input type="text"
                   id="lastName"
                   size="15"
@@ -100,7 +100,7 @@ class SignUpForm extends Component {
 
             <div className="form-group">
               <center>
-                <label>Email ID : </label>
+                <label class="required">Email ID : </label>
                 <input type="text"
                   id="email address"
                   size="15"
@@ -119,7 +119,7 @@ class SignUpForm extends Component {
 
             <div className="form-group">
               <center>
-                <label>Password : </label>
+                <label class="required">Password : </label>
                 <input type="password"
                   id="password"
                   size="15"

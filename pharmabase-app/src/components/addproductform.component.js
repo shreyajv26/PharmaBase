@@ -81,11 +81,11 @@ class AddProduct extends Component {
             <form>
               <div className="form-group">
                 <center>
-                  <label>ApplNo : </label>
+                  <label class="required">ApplNo : </label>
                   <input type="text"
                     id="ApplNo"
-                    size="20"
-                    placeholder="ApplNo"
+                    size="30"
+                    placeholder="ApplNo (Numbers Only)"
                     value={this.state.ApplNo}
                     onChange={this.handleChange}
                   />
@@ -95,11 +95,11 @@ class AddProduct extends Component {
 
               <div className="form-group">
                 <center>
-                  <label>ProductNo : </label>
+                  <label class="required">ProductNo : </label>
                   <input type="text"
-                    size="20"
+                    size="30"
                     id="ProductNo"
-                    placeholder="ProductNo"
+                    placeholder="ProductNo (Numbers Only) "
                     value={this.state.ProductNo}
                     onChange={this.handleChange}
 
@@ -111,11 +111,11 @@ class AddProduct extends Component {
 
               <div className="form-group">
                 <center>
-                  <label>Form : </label>
+                  <label class="required">Form : </label>
                   <input type="text"
-                    size="20"
+                    size="30"
                     id="Form"
-                    placeholder="Form"
+                    placeholder="Form (Alphabets Only)"
                     value={this.state.Form}
                     onChange={this.handleChange}
 
@@ -127,11 +127,11 @@ class AddProduct extends Component {
 
               <div className="form-group">
                 <center>
-                  <label>DrugName : </label>
+                  <label class="required">DrugName : </label>
                   <input type="text"
-                    size="20"
+                    size="30"
                     id="DrugName"
-                    placeholder="DrugName"
+                    placeholder="DrugName (Alphabets Only)"
                     value={this.state.DrugName}
                     onChange={this.handleChange}
 
@@ -143,11 +143,11 @@ class AddProduct extends Component {
 
               <div className="form-group">
                 <center>
-                  <label>Med_Count : </label>
+                  <label class="required">Med_Count : </label>
                   <input type="text"
-                    size="20"
+                    size="30"
                     id="Med_Count"
-                    placeholder="Med_Count"
+                    placeholder="Med_Count (Numbers Only)"
                     value={this.state.Med_Count}
                     onChange={this.handleChange}
 
@@ -159,11 +159,11 @@ class AddProduct extends Component {
 
               <div className="form-group">
                 <center>
-                  <label>RACKNO : </label>
+                  <label class="required">RACKNO : </label>
                   <input type="text"
-                    size="20"
+                    size="30"
                     id="RACKNO"
-                    placeholder="RACKNO"
+                    placeholder="RACKNO (Numbers Only)"
                     value={this.state.RACKNO}
                     onChange={this.handleChange}
 
