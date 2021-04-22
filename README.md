@@ -8,3 +8,8 @@ The concept is to create a web application for medical store owners who would be
 
 Medical data files downloaded from the below location:
 https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files
+
+Front-End:
+React JS Version: 16.8.1
+Backend: Java 8 + Spring Boot
+Database: MySQL Database from AWS RDS
