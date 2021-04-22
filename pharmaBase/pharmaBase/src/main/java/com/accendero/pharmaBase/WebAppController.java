@@ -42,7 +42,7 @@ public class WebAppController {
 	@PostMapping("/")
 	public ResponseEntity<String> login(@RequestBody LoginForm user) {
 		System.out.println("in login form");
-		System.out.println(user.toString());
+		//System.out.println(user.toString());
 		String email = user.getEmail();
 		String password = user.getPassword();
 		
@@ -66,7 +66,7 @@ public class WebAppController {
 	@PostMapping("/register_process")
 	public String successfulRegister(@RequestBody User u) {
 		System.out.println("in here");
-		System.out.println(u.toString());
+		//System.out.println(u.toString());
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 	    String encodedPassword = passwordEncoder.encode(u.getPassword());
 	    u.setPassword(encodedPassword);
