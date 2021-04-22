@@ -104,7 +104,7 @@ class EditProduct extends Component {
 
                             <div className="form-group">
                                 <center>
-                                    <label>Item ID : </label>
+                                <label class="required">Item ID : </label>
                                     <input type="text"
                                         size="20"
                                         id="item_id"
@@ -120,7 +120,7 @@ class EditProduct extends Component {
 
                             <div className="form-group">
                                 <center>
-                                    <label>Drug Name : </label>
+                                <label class="required">Drug Name : </label>
                                     <input type="text"
                                         size="20"
                                         id="DrugName"
@@ -136,7 +136,7 @@ class EditProduct extends Component {
 
                             <div className="form-group">
                                 <center>
-                                    <label>Med_Count : </label>
+                                <label class="required">Med_Count : </label>
                                     <input type="text"
                                         size="20"
                                         id="Med_Count"
@@ -152,7 +152,7 @@ class EditProduct extends Component {
 
                             <div className="form-group">
                                 <center>
-                                    <label>RACKNO : </label>
+                                <label class="required">RACKNO : </label>
                                     <input type="text"
                                         size="20"
                                         id="RACKNO"

@@ -96,7 +96,7 @@ class LoginForm extends Component {
 
               <div className="form-group">
                 <center>
-                  <label>Password : </label>
+                <label class="required">Password : </label>
                   <input type="password"
                     size="15"
                     id="password"
