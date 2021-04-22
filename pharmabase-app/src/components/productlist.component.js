@@ -21,7 +21,7 @@ class ProductList extends Component {
       ]
     }
   }
-  
+
   showProductPageFormClick = (e) => {
     e.preventDefault();
     let path = '/home';
@@ -29,7 +29,7 @@ class ProductList extends Component {
     );
 
   }
-  
+
   editButtonClick = (e) => {
     e.preventDefault();
     this.setState({ itemId: e.target.value });

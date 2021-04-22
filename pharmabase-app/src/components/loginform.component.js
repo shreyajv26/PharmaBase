@@ -26,7 +26,7 @@ class LoginForm extends Component {
     }
   }
 
- 
+
 
   handleChange = (e) => {
     const { id, value } = e.target
@@ -49,8 +49,8 @@ class LoginForm extends Component {
       "password": this.state.password
     }
     axios.post(this.state.apiBaseUrl + '/', data).then((response) => {
-    let path = '/home';
-    this.props.history.push(path);
+      let path = '/home';
+      this.props.history.push(path);
     });
 
   }
@@ -70,14 +70,14 @@ class LoginForm extends Component {
             </div>
 
             <br></br>
-            
-              <div class="sub-header">
-                <h3>Sign In</h3>
-              </div>
 
-              <br></br>
+            <div class="sub-header">
+              <h3>Sign In</h3>
+            </div>
 
-              <form>
+            <br></br>
+
+            <form>
               <div className="form-group">
                 <center>
                   <label>Email ID : </label>
@@ -114,7 +114,7 @@ class LoginForm extends Component {
                 <button type="submit" className="btn btn-primary mr-5" onClick={this.loginHandleClick}>
                   Login
             </button>
-            
+
 
                 <button
                   type="submit" className="btn btn-primary mr-5" onClick={this.signupHandleClick}>
@@ -147,4 +147,4 @@ class LoginForm extends Component {
     );
   }
 }
-export default withRouter (LoginForm);
+export default withRouter(LoginForm);

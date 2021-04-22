@@ -2,7 +2,7 @@ import React, { Component, state } from 'react';
 import axios from 'axios';
 import { withRouter } from 'react-router-dom';
 import Home from "./productpage.component";
-import ProductList  from "./productlist.component";
+import ProductList from "./productlist.component";
 
 
 
@@ -43,8 +43,8 @@ class DeleteProduct extends Component {
     }
     axios.post(this.state.apiBaseUrl + '/addproduct', data).then((response) => {
       alert("Product Added successfully");
-    let path = '/home';
-    this.props.history.push(path);
+      let path = '/home';
+      this.props.history.push(path);
     });
   }
 
@@ -212,4 +212,4 @@ class DeleteProduct extends Component {
 
   }
 }
-export default withRouter (DeleteProduct);
+export default withRouter(DeleteProduct);
