@@ -64,7 +64,7 @@ Medical data files downloaded from the below location: https://www.fda.gov/drugs
       1. Start with Signing Up with your details.
       
       2. Login to the app with valid credentials. You will not be able to get through if the credentials are incorrect. 
-            (Currently, no error would be thrown on console for incorrect credentials. However, you can check in the react console that the access was unauthorized)
+            (Currently, no error would be thrown on web app for incorrect credentials. However, you can check in the react console that the error is displayed - access was unauthorized)
       
       3. On successful login, you can see the products page. You can either add/display the list of products.
       
