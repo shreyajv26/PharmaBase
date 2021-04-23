@@ -1,11 +1,10 @@
-# PharmaBase
+**# PharmaBase**
 
 The concept is to create a web application for medical store owners who would be able to achieve the following:
 
-Login to the application.
-On the home page - Type the name of the medicine and get its current count (amount left in store) as well as the rack number on which the medicine is stored for fast access and retrieval of medicine to be sold to the customer.
-The user can edit the details related to the medicine.
-Medical data files downloaded from the below location: https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files
+1. Login to the application.
+2. On the home page - Type the name of the medicine and get its current count (amount left in store) as well as the rack number on which the medicine is stored for fast access and retrieval of medicine to be sold to the customer.
+3. The store owner can edit the details related to the medicine.
 
 
 **Configurations:**
@@ -21,25 +20,37 @@ Medical data files downloaded from the below location: https://www.fda.gov/drugs
 
 **Steps to run the project:**
 
+Pre-Requisites:
+
+1. Java 8 is installed.
+2. Node js is installed.
+3. No process is running on Port 8080 and 3000.
+
+Steps:
+
 1. First Run the Jar:
-      a. Download the jar attached - pharmaBase.jar
+
+      a. Download the jar "pharmaBase.jar".
       
-      b. Run the jar in command prompt using the below command
-          java -jar pharmaBase.jar
+      b. Open command prompt and go to the folder where you saved the jar. Type the below command to run the jar.
+                                     java -jar pharmaBase.jar
       
       c. Do not close this terminal window. Keep it running. The application has started.
       
-1. To start the Web-App:
-      a. Open your terminal and then type
-            $ git clone {the url to the GitHub repo}
-         This will clone the repo to your machine.
+2. To start the Web-App:
 
-      b. cd into the new folder and type
-            $ npm install
-        This installs the required dependencies
+      a. Download the project and unzip it (recommended) or clone the git repository using the below command.
+                              $ git clone {the url to the GitHub repo}
+         
 
-      c. To run the React project.
+      b. In command prompt, cd into the new folder "pharmabase-app" and type
+                               $ npm install
+        This will install all the required dependencies for the project. 
+
+      c. Once all the dependencies are downloaded, from the same folder "pharmabase-app" in command prompt, type the below command to run the React project.
             $ npm start
+      
+      d. The website will be triggered and you can test the application. (I have added a walkthrough video for this project. You can refer to it in case you face any issues while starting the application)
         
 
 **Implementation Details:**
@@ -83,3 +94,21 @@ Medical data files downloaded from the below location: https://www.fda.gov/drugs
       10. You can add a new product and check the "Products List" to see your changes.
             
 
+**Future Scope:**
+
+      1. Adding the error messages on UI (for e.g. Login)
+      2. Populating the "Edit Product" page.
+      3. Logout functionality
+      4. More Unit Test writing - For rest of the methods.
+
+**Disclaimer:**
+
+      I have observed that the pages take slower to load since we are using Free Tier or AWS RDS. Please have patience for the page to load.
+      Sometimes the RDS instance just crashes, in which case the application wont work without connectivity. Please reach out to me in case that issue occurs.
+      
+**My details:**
+
+      Shreya Pampattiwar
+      +1 (716)-292-8585
+       https://www.linkedin.com/in/shreya-pampattiwar
+      github.com/shreyajv26
