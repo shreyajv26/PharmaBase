@@ -152,7 +152,7 @@ class EditProduct extends Component {
 
                             <div className="form-group">
                                 <center>
-                                <label class="required">RACKNO : </label>
+                                    <label class="required">RACKNO : </label>
                                     <input type="text"
                                         size="20"
                                         id="RACKNO"
