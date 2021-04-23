@@ -8,10 +8,36 @@ The user can edit the name and quantity of the medicine.
 Medical data files downloaded from the below location: https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files
 
 
-Configurations:
+**Configurations:**
+
 1. Front-End: 
-  Node Version: 14.6.0
-  npm Version: 6.14.11
+      a. Node Version: 14.6.0
+      b. npm Version: 6.14.11
 
 2. Backend: Java 8 + Spring Boot 
-3. Database: MySQL Database from AWS RDS
+
+4. Database: MySQL Database from AWS RDS
+
+**Steps to run the project:**
+
+1. First Run the Jar:
+      a. Download the jar attached - pharmaBase.jar
+      
+      b. Run the jar in command prompt using the below command
+          java -jar pharmaBase.jar
+      
+      c. Do not close this terminal window. Keep it running. The application has started.
+      
+1. To start the Web-App:
+      a. Open your terminal and then type
+            $ git clone {the url to the GitHub repo}
+         This will clone the repo to your machine.
+
+      b. cd into the new folder and type
+            $ npm install
+        This installs the required dependencies
+
+      c. To run the React project.
+            $ npm start
+            
+
