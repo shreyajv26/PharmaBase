@@ -103,8 +103,9 @@ Steps:
 
 **Disclaimer:**
 
-      I have observed that the pages take slower to load since we are using Free Tier or AWS RDS. Please have patience for the page to load.
-      Sometimes the RDS instance just crashes, in which case the application wont work without connectivity. Please reach out to me in case that issue occurs.
+        I have observed that the pages take longer  to load since I am using Free Tier of AWS RDS. Please have patience for the page to load.
+        Sometimes the RDS instance just crashes, in which case the application won’t work without DB connectivity. Please reach out to me in case that issue occurs.
+
       
 **My details:**
 
