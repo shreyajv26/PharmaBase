@@ -43,6 +43,7 @@ Medical data files downloaded from the below location: https://www.fda.gov/drugs
         
 
 **Implementation Details:**
+      
       1. Create a user and login with valid credentials (Saved in "Users" table in MySQL)
       
       2. Add a product to the list (saved in "Products_data" table in MySQL)
@@ -53,11 +54,13 @@ Medical data files downloaded from the below location: https://www.fda.gov/drugs
 
 
 **Tests Covered:**
+     
       1. Unit Test covered for Add a product Functionality (all other tests can be written in similar way)
       
       2. Integration Tests Covered for all the above mentioned functionalities.
 
 **Functionalities Covered:**
+      
       1. Start with Signing Up with your details.
       
       2. Login to the app with valid credentials. You will not be able to get through if the credentials are incorrect. 
