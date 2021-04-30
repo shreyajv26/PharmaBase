@@ -87,7 +87,7 @@ Steps:
       
       7. When you click on "Edit" Button - You can edit the product details (The edit product page is not pre-populating the details, however, you can check in console that the correct data is transfered between pages). Just enter the fields and click on "Save". New changes would be displayed on the product list.
       
-      8. On clicking the "Delete" Button, you can see the product being deleted and changes reflecting immediately on the page.
+      8. On clicking the "Delete" Button, you can see the product being deleted and changes reflecting immediately on the page. (Ideally the changes reflect immediately without the need to refresh the page. Just in case the row doesnt get removed, reload the page and check).
       
       9. "Go back to Products page" and you will see another option to "Add a product"
       
